@@ -19,7 +19,8 @@ public class Boss {
 
     private static final int BMP_ROWS = 2;
     private static final int BMP_COLUMNS = 3;
-    private int x,y=0;
+    Bitmap bullet, resizedBullet;
+    private int x, y = 0;
     private Rect detectCollision;
     private GameView gameView;
     private Bitmap bmp;
@@ -27,21 +28,20 @@ public class Boss {
     private int width;
     private int height;
     private int ySpeed;
-    Bitmap bullet, resizedBullet;
     private ArrayList<Shoot> bullets = new ArrayList<Shoot>();
 
 
     public Boss(GameView view, Bitmap bmp, int screenH) {
         this.gameView = view;
         this.bmp = bmp;
-        this.ySpeed = screenH/23;
-        this.y = screenH/2;
+        this.ySpeed = screenH / 23;
+        this.y = screenH / 2;
         this.bmp = bmp;
         this.width = bmp.getWidth() / BMP_COLUMNS;
         this.height = bmp.getHeight() / BMP_ROWS;
 
         bullet = BitmapFactory.decodeResource(view.getResources(), R.drawable.underworld_fire);
-        resizedBullet = Bitmap.createScaledBitmap(bullet, screenH/8-screenH/20, screenH/7-screenH/20, false);
+        resizedBullet = Bitmap.createScaledBitmap(bullet, screenH / 8 - screenH / 20, screenH / 7 - screenH / 20, false);
 
 
     }
@@ -50,17 +50,15 @@ public class Boss {
     public void update() {
 
         y = y + ySpeed;
-        if(y>=gameView.getHeight()-width){
-            ySpeed=-ySpeed;
+        if (y >= gameView.getHeight() - width) {
+            ySpeed = -ySpeed;
             //shoot();
-        }
-        else if (y<0){
-            ySpeed = gameView.getHeight()/22;
+        } else if (y < 0) {
+            ySpeed = gameView.getHeight() / 22;
             //shoot();
         }
 
         currentFrame = ++currentFrame % BMP_COLUMNS;
-
 
 
     }
@@ -69,13 +67,13 @@ public class Boss {
 
         update();
 
-        x = gameView.getWidth()-width;
+        x = gameView.getWidth() - width;
 
         //y = y + 20;
 
         int srcX = currentFrame * width;
 
-        int srcY = 1* height;
+        int srcY = 1 * height;
 
         Rect src = new Rect(srcX, srcY, srcX + width, srcY + height);
 
@@ -83,24 +81,25 @@ public class Boss {
 
         Paint p = new Paint();
 
-        p.setColor(Color.rgb(100,10,25));
-        p.setTextSize(width/30);
+        p.setColor(Color.rgb(100, 10, 25));
+        p.setTextSize(width / 30);
         //canvas.drawText(""+this.value, srcX+ width/2,  srcY, p);
         canvas.drawBitmap(bmp, src, dst, null);
 
-        detectCollision =  new Rect(x,y,x+width,y+height);
+        detectCollision = new Rect(x, y, x + width, y + height);
         //canvas.drawRect(detectCollision, p);
 
     }
 
     public void shoot() {
-        Shoot p = new Shoot(gameView, resizedBullet, gameView.getWidth()-bmp.getWidth()/2, y+bmp.getHeight()/4, 2);
+        Shoot p = new Shoot(gameView, resizedBullet, gameView.getWidth() - bmp.getWidth() / 2, y + bmp.getHeight() / 4, 2);
         bullets.add(p);
     }
 
     public Rect getDetectCollision() {
         return detectCollision;
     }
+
     public ArrayList getBullets() {
         return bullets;
     }

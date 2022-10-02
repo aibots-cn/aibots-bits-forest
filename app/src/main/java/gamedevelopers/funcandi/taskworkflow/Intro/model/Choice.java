@@ -19,7 +19,6 @@ public class Choice {
     }
 
 
-
     public int getNextPage() {
         return nextPage;
     }

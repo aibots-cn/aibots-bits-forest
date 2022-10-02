@@ -11,18 +11,13 @@ import gamedevelopers.funcandi.taskworkflow.R;
 
 public class Story3 {
 
+    // set this to true for analysis part
+    public boolean analysis = false;
     String name;
+    Context context;
+    int happy, shocked, thinking, nervous;
     private Page[] pages;
     private String[] dialo;
-
-
-    // set this to true for analysis part
-    public boolean analysis=false;
-
-
-    Context context;
-
-    int happy, shocked, thinking, nervous;
 
     public Story3(String name, Context context) {
 
@@ -32,15 +27,14 @@ public class Story3 {
             thinking = R.drawable.episode_thinkingboy;
             nervous = R.drawable.episode_nervousboy;
 
-        }
-        else  {
+        } else {
             happy = R.drawable.school_happygirl;
             shocked = R.drawable.school_shockedgirl;
             thinking = R.drawable.school_thinkinggirl;
             nervous = R.drawable.school_nervousgirl;
         }
 
-        this.context=context;
+        this.context = context;
 
 
         this.name = name;
@@ -48,52 +42,52 @@ public class Story3 {
 
         dialo = new String[1];
 
-        dialo[0]="  Hi Zayn! what the merkle tree is, its little tricky !! ";
+        dialo[0] = "  Hi Zayn! what the merkle tree is, its little tricky !! ";
         pages[0] = new Page(1, R.drawable.school_school, happy,
                 dialo, new Choice("NEXT", 1), new Choice("NEXT", 1), false);
 
         dialo = new String[1];
-        dialo[0]=" Ya its little tricky but it is the most important aspect of Blockchain.";
+        dialo[0] = " Ya its little tricky but it is the most important aspect of Blockchain.";
         pages[1] = new Page(2, R.drawable.school_school, R.drawable.school_happyfriend,
                 dialo, new Choice("NEXT", 2), new Choice("NEXT", 2), false);
 
         dialo = new String[1];
-        dialo[0]="  So what is it?";                           //r0h!n!cbs
+        dialo[0] = "  So what is it?";                           //r0h!n!cbs
         pages[2] = new Page(1, R.drawable.school_school, happy,
                 dialo, new Choice("NEXT", 3), new Choice("NEXT", 3), false);
 
         dialo = new String[2];
-        dialo[0]=" A Merkle Tree is a tree in which every leaf node is labelled with the hash of a data block.";
-        dialo[1]=" And every non leaf node is labelled with the cryptographic hash of the labels of its child nodes.";
+        dialo[0] = " A Merkle Tree is a tree in which every leaf node is labelled with the hash of a data block.";
+        dialo[1] = " And every non leaf node is labelled with the cryptographic hash of the labels of its child nodes.";
 
         pages[3] = new Page(2, R.drawable.school_school, R.drawable.school_happyfriend,
                 dialo, new Choice("NEXT", 4), new Choice("NEXT", 4), false);
 
 
         dialo = new String[1];
-        dialo[0]=" Okay but can you explain with an example?";
+        dialo[0] = " Okay but can you explain with an example?";
         pages[4] = new Page(1, R.drawable.school_school, thinking,
                 dialo, new Choice("NEXT", 5), new Choice("NEXT", 5), false);
 
 
         dialo = new String[4];
-        dialo[0]=" Yeah sure!!";
-        dialo[1]=" Assume the two leafs 1 and 2 has hash value X and Y respectively";
-        dialo[2]=" plus they are siblings then, because of the concept of the merkle tree";
-        dialo[3]=" their parent will have hash XY ....";
+        dialo[0] = " Yeah sure!!";
+        dialo[1] = " Assume the two leafs 1 and 2 has hash value X and Y respectively";
+        dialo[2] = " plus they are siblings then, because of the concept of the merkle tree";
+        dialo[3] = " their parent will have hash XY ....";
 
         //Buddy Constructor called
         pages[5] = new Page(2, R.drawable.school_school, R.drawable.school_happyfriend,
                 dialo, new Choice("NEXT", 6), new Choice("NEXT", 6), false);
 
         dialo = new String[1];
-        dialo[0]="Oh! this is what happens in the merkle tree?";
+        dialo[0] = "Oh! this is what happens in the merkle tree?";
         pages[6] = new Page(1, R.drawable.school_school, thinking,
                 dialo, new Choice("NEXT", 7), new Choice("NEXT", 7), false);
 
 
         dialo = new String[1];
-        dialo[0]="Ya! thats all.";
+        dialo[0] = "Ya! thats all.";
         pages[7] = new Page(2, R.drawable.school_school, R.drawable.school_happyfriend,
                 dialo, new Choice("NEXT", 8), new Choice("NEXT", 8), false);
 
@@ -106,10 +100,9 @@ public class Story3 {
 
 
         dialo = new String[1];
-        dialo[0]="Cool, bye then!!";
-        pages[9] = new Page( 2, R.drawable.school_school,R.drawable.school_happyfriend,
+        dialo[0] = "Cool, bye then!!";
+        pages[9] = new Page(2, R.drawable.school_school, R.drawable.school_happyfriend,
                 dialo, new Choice("NEXT", 10), new Choice("NEXT", 10), false);
-
 
 
         dialo = new String[1];
@@ -119,7 +112,6 @@ public class Story3 {
 
 
     }
-
 
 
     public Page getPage(int pageNumber) {

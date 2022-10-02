@@ -4,8 +4,8 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Typeface;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,13 +15,11 @@ import gamedevelopers.funcandi.taskworkflow.R;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static char gender;
+    Typeface t;
+    Intent i;
     private EditText nameField;
     private Button startButton;
-    Typeface t;
-
-    Intent i;
-
-    public static char gender;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +32,8 @@ public class MainActivity extends AppCompatActivity {
         gender = i.getCharExtra(PlayerSelect.GENDER, 'G');
 
 
-        nameField = (EditText)findViewById(R.id.nameEditText);
-        startButton = (Button)findViewById(R.id.startButton);
+        nameField = (EditText) findViewById(R.id.nameEditText);
+        startButton = (Button) findViewById(R.id.startButton);
 
         nameField.setTypeface(t);
         startButton.setTypeface(t);

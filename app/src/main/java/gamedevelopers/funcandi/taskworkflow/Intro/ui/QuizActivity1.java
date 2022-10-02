@@ -16,14 +16,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.Stack;
 
 import gamedevelopers.funcandi.taskworkflow.Intro.PlayAgainActivity;
 import gamedevelopers.funcandi.taskworkflow.Intro.model.Page;
 import gamedevelopers.funcandi.taskworkflow.Intro.model.Quiz1;
-import gamedevelopers.funcandi.taskworkflow.Intro.model.Story;
 import gamedevelopers.funcandi.taskworkflow.LauncherActivity;
 import gamedevelopers.funcandi.taskworkflow.R;
 
@@ -31,55 +29,48 @@ import gamedevelopers.funcandi.taskworkflow.R;
  * Created by msk on 04-07-2017.
  */
 
-public class QuizActivity1 extends AppCompatActivity{
+public class QuizActivity1 extends AppCompatActivity {
 
     public static final String TAG = QuizActivity1.class.getSimpleName();
-
+    int x, y, diaCount = 1;
+    String[] pageText;
+    String[] lessons;
+    int l = 0;
+    Typeface t;
+    Page page;
+    Intent i, i1;
+    Context context;
+    Button skip;
     private String name;
     private Quiz1 story;
-    private ImageView  character;
+    private ImageView character;
     private ConstraintLayout c;
     private TextView DialogueText, lesson;
     private Button choice1Button;
     private Button choice2Button;
     private Stack<Integer> pageStack = new Stack<Integer>();
-
-    int x, y,diaCount=1;
-    String[] pageText;
-    String[] lessons;
-    int l=0;
-
-    Typeface t;
-
-    Page page;
-
     private long animDuration = 1000;
-
-    Intent i, i1;
-    Context context;
-
-    Button skip;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.school_activity_story);
 
-        context=getApplicationContext();
+        context = getApplicationContext();
 
-        i= new Intent(context.getApplicationContext(), EndActivity.class);
-        i1= new Intent(context.getApplicationContext(), PlayAgainActivity.class);
+        i = new Intent(context.getApplicationContext(), EndActivity.class);
+        i1 = new Intent(context.getApplicationContext(), PlayAgainActivity.class);
 
-        x=getResources().getDisplayMetrics().widthPixels;
-        y=getResources().getDisplayMetrics().heightPixels;
+        x = getResources().getDisplayMetrics().widthPixels;
+        y = getResources().getDisplayMetrics().heightPixels;
 
         t = Typeface.createFromAsset(getAssets(), "raleway.ttf");
 
         lessons = new String[4];
-        lessons[0]="Lesson Learnt: There is nothing on this earth more to be prized than true friendship";
-        lessons[1]="Lesson Learnt: The main thing is never quit, never quit, never quit";
-        lessons[2]="Lesson Learnt: Strong people don't put others down... They lift them up";
-        lessons[3]="Lesson Learnt: We rise by lifting others";
+        lessons[0] = "Lesson Learnt: There is nothing on this earth more to be prized than true friendship";
+        lessons[1] = "Lesson Learnt: The main thing is never quit, never quit, never quit";
+        lessons[2] = "Lesson Learnt: Strong people don't put others down... They lift them up";
+        lessons[3] = "Lesson Learnt: We rise by lifting others";
 
 
         choice1Button = (Button) findViewById(R.id.choice1Button);
@@ -122,28 +113,27 @@ public class QuizActivity1 extends AppCompatActivity{
 
     private void loadPage(int pageNumber) {
 
-        if (story.analysis ){
+        if (story.analysis) {
 
-            if (pageNumber>=9)
-            callEndActivity();
+            if (pageNumber >= 9)
+                callEndActivity();
         }
 
         pageStack.push(pageNumber);
 
-        diaCount=1;
+        diaCount = 1;
 
         Drawable speechbg;
         page = story.getPage(pageNumber);
 
         if (page.getMainChar() == 1) {
-            DialogueText.setWidth(x/2);
-            DialogueText.setX(x/2-x/8);
+            DialogueText.setWidth(x / 2);
+            DialogueText.setX(x / 2 - x / 8);
 
-            if (page.isThinking()){
+            if (page.isThinking()) {
                 speechbg = ContextCompat.getDrawable(this, R.drawable.episode_think);
                 DialogueText.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-            }
-            else {
+            } else {
                 speechbg = ContextCompat.getDrawable(this, R.drawable.school_episode_speechbubble);
                 DialogueText.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
 
@@ -151,27 +141,24 @@ public class QuizActivity1 extends AppCompatActivity{
 
             DialogueText.setBackground(speechbg);
             loadmainAniamtion();
-            character.setY(y/2-y/14);
+            character.setY(y / 2 - y / 14);
 
-        }
-        else {
+        } else {
 
-            if (page.getIsBuddy()==1){
-                character.setY(y/3);
-            }
-            else {
-                character.setY(y/3);
+            if (page.getIsBuddy() == 1) {
+                character.setY(y / 3);
+            } else {
+                character.setY(y / 3);
             }
 
-            DialogueText.setWidth(x/2);
-            DialogueText.setX(x/2-x/3);
+            DialogueText.setWidth(x / 2);
+            DialogueText.setX(x / 2 - x / 3);
             //DialogueText.setY(y/4);
 
-            if (page.isThinking()){
+            if (page.isThinking()) {
                 speechbg = ContextCompat.getDrawable(this, R.drawable.episode_think);
                 DialogueText.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-            }
-            else {
+            } else {
                 speechbg = ContextCompat.getDrawable(this, R.drawable.school_episode_speechbubble1);
                 DialogueText.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
             }
@@ -187,8 +174,8 @@ public class QuizActivity1 extends AppCompatActivity{
         c.setBackground(image);
 
 
-       // Bitmap charImage = BitmapFactory.decodeResource(getResources(), page.getCharId());
-       // Bitmap resizedChar = Bitmap.createScaledBitmap(charImage, y/3-y/8, y/2-y/10, false);
+        // Bitmap charImage = BitmapFactory.decodeResource(getResources(), page.getCharId());
+        // Bitmap resizedChar = Bitmap.createScaledBitmap(charImage, y/3-y/8, y/2-y/10, false);
         Drawable charImage = ContextCompat.getDrawable(this, page.getCharId());
         character.setBackground(charImage);
 
@@ -205,10 +192,6 @@ public class QuizActivity1 extends AppCompatActivity{
         //DialogueText.setText(pageText);
 
 
-
-
-
-
         if (page.isFinalPage()) {
             choice1Button.setVisibility(View.INVISIBLE);
             choice2Button.setText("NEXT");
@@ -216,11 +199,10 @@ public class QuizActivity1 extends AppCompatActivity{
                 @Override
                 public void onClick(View v) {
                     callPlayAgainActivity();
-                   // loadPage(0);
+                    // loadPage(0);
                 }
             });
-        }
-        else {
+        } else {
             loadButtons(page);
         }
 
@@ -232,7 +214,7 @@ public class QuizActivity1 extends AppCompatActivity{
         int nextPage = page.getChoice2().getNextPage();
 
         if (nextPage == 7) {
-            LauncherActivity.REWARD+=10;
+            LauncherActivity.REWARD += 10;
 
         }
         /*if (nextPage>=10 && nextPage<=12 ) {
@@ -257,7 +239,7 @@ public class QuizActivity1 extends AppCompatActivity{
         }
        */
 
-        if (diaCount<pageText.length) {
+        if (diaCount < pageText.length) {
             choice1Button.setVisibility(View.INVISIBLE);
             choice2Button.setText("NEXT");
 
@@ -265,13 +247,12 @@ public class QuizActivity1 extends AppCompatActivity{
                 @Override
                 public void onClick(View v) {
                     DialogueText.setText(pageText[diaCount]);
-                    diaCount+=1;
+                    diaCount += 1;
                     loadButtons(page);
                 }
             });
 
-        }
-        else if (page.getChoice1().getCh().equals("NEXT")) {
+        } else if (page.getChoice1().getCh().equals("NEXT")) {
 
             //lesson.setVisibility(View.INVISIBLE);
 
@@ -286,56 +267,51 @@ public class QuizActivity1 extends AppCompatActivity{
                     loadPage(nextPage);
                 }
             });
-        }
-          else  {
+        } else {
 
-                choice1Button.setVisibility(View.VISIBLE);
-                choice1Button.setText(page.getChoice1().getCh());
-                choice1Button.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        int nextPage = page.getChoice1().getNextPage();
-
+            choice1Button.setVisibility(View.VISIBLE);
+            choice1Button.setText(page.getChoice1().getCh());
+            choice1Button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int nextPage = page.getChoice1().getNextPage();
 
 
-                        loadPage(nextPage);
-                    }
-                });
+                    loadPage(nextPage);
+                }
+            });
 
-                choice2Button.setVisibility(View.VISIBLE);
-                choice2Button.setText(page.getChoice2().getCh());
-                choice2Button.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        int nextPage = page.getChoice2().getNextPage();
+            choice2Button.setVisibility(View.VISIBLE);
+            choice2Button.setText(page.getChoice2().getCh());
+            choice2Button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int nextPage = page.getChoice2().getNextPage();
 
-                        if (story.analysis) {
-                            if (nextPage >= 10) {
-                                callPlayAgainActivity();
-                            }
+                    if (story.analysis) {
+                        if (nextPage >= 10) {
+                            callPlayAgainActivity();
                         }
-                            else
-                                loadPage(nextPage);
-                    }
-                });
+                    } else
+                        loadPage(nextPage);
+                }
+            });
 
-            }
         }
-
+    }
 
 
     public void loadmainAniamtion() {
 
-        ObjectAnimator animatorX = ObjectAnimator.ofFloat(character, "x", -20, x/14);
+        ObjectAnimator animatorX = ObjectAnimator.ofFloat(character, "x", -20, x / 14);
         animatorX.setDuration(animDuration);
 
         ObjectAnimator textAnimator;
-        if (page.isThinking()){
-             textAnimator = ObjectAnimator.ofFloat(DialogueText, "y", 0, y/3-y/12);
+        if (page.isThinking()) {
+            textAnimator = ObjectAnimator.ofFloat(DialogueText, "y", 0, y / 3 - y / 12);
             textAnimator.setDuration(1500L);
-        }
-        else {
-             textAnimator = ObjectAnimator.ofFloat(DialogueText, "y", y, y-y/2);
+        } else {
+            textAnimator = ObjectAnimator.ofFloat(DialogueText, "y", y, y - y / 2);
             textAnimator.setDuration(1500L);
         }
 
@@ -352,19 +328,17 @@ public class QuizActivity1 extends AppCompatActivity{
 
     public void loadotherAniamtion() {
 
-        ObjectAnimator animatorX = ObjectAnimator.ofFloat(character, "x", x, x-x/3-x/8);
+        ObjectAnimator animatorX = ObjectAnimator.ofFloat(character, "x", x, x - x / 3 - x / 8);
         animatorX.setDuration(animDuration);
 
         ObjectAnimator textAnimator;
-        if (page.isThinking()){
-            textAnimator = ObjectAnimator.ofFloat(DialogueText, "y", 0, y/3);
+        if (page.isThinking()) {
+            textAnimator = ObjectAnimator.ofFloat(DialogueText, "y", 0, y / 3);
+            textAnimator.setDuration(1500L);
+        } else {
+            textAnimator = ObjectAnimator.ofFloat(DialogueText, "y", y, y - y / 2);
             textAnimator.setDuration(1500L);
         }
-        else {
-            textAnimator = ObjectAnimator.ofFloat(DialogueText, "y", y, y-y/2);
-            textAnimator.setDuration(1500L);
-        }
-
 
 
         ObjectAnimator alphaAnimator = ObjectAnimator.ofFloat(character, View.ALPHA, 0.0f, 1.0f);
@@ -383,8 +357,7 @@ public class QuizActivity1 extends AppCompatActivity{
         pageStack.pop();
         if (pageStack.isEmpty()) {
             super.onBackPressed();
-        }
-        else {
+        } else {
             loadPage(pageStack.pop());
         }
 

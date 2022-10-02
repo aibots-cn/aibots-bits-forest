@@ -2,8 +2,8 @@ package gamedevelopers.funcandi.taskworkflow.Intro;
 
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -11,12 +11,11 @@ import android.widget.TextView;
 import gamedevelopers.funcandi.taskworkflow.Intro.ui.MainActivity;
 import gamedevelopers.funcandi.taskworkflow.R;
 
-public class PlayerSelect extends AppCompatActivity implements View.OnClickListener{
-
-    ImageButton boy, girl;
-    TextView text;
+public class PlayerSelect extends AppCompatActivity implements View.OnClickListener {
 
     public static String GENDER = "gender";
+    ImageButton boy, girl;
+    TextView text;
     Intent i;
 
     Typeface t;
@@ -38,11 +37,7 @@ public class PlayerSelect extends AppCompatActivity implements View.OnClickListe
         girl.setOnClickListener(this);
 
 
-
         i = new Intent(this, MainActivity.class);
-
-
-
 
 
     }
@@ -51,8 +46,7 @@ public class PlayerSelect extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         if (v.getId() == R.id.boy) {
             i.putExtra(GENDER, 'B');
-        }
-        else {
+        } else {
             i.putExtra(GENDER, 'G');
         }
 

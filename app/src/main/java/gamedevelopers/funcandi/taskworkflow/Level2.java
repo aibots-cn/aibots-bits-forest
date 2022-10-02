@@ -2,8 +2,8 @@ package gamedevelopers.funcandi.taskworkflow;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
@@ -12,10 +12,8 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import java.util.logging.Level;
-
 import gamedevelopers.funcandi.taskworkflow.Intro.ui.QuizActivity2;
-import gamedevelopers.funcandi.taskworkflow.level2.*;
+import gamedevelopers.funcandi.taskworkflow.level2.Task2;
 
 
 public class Level2 extends AppCompatActivity implements View.OnClickListener {
@@ -26,28 +24,25 @@ public class Level2 extends AppCompatActivity implements View.OnClickListener {
 
 
     Animation myAnim;
-
+    Button back, task1, task2, task3, treasure;
+    ImageView star1, star2, star3, avatar1, avatar2, avatar3;
     private MediaPlayer click, game;
 
-
-    Button back,task1,task2,task3, treasure;
-
-    ImageView star1, star2, star3, avatar1, avatar2,avatar3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
 
-        overridePendingTransition( R.anim.slide_in, R.anim.slide_out );
+        overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
 
         //  requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_level2);
-        back=(Button) findViewById(R.id.back);
-        task1=(Button) findViewById(R.id.task1);
-        task2=(Button) findViewById(R.id.task2);
-        task3=(Button) findViewById(R.id.task3);
+        back = (Button) findViewById(R.id.back);
+        task1 = (Button) findViewById(R.id.task1);
+        task2 = (Button) findViewById(R.id.task2);
+        task3 = (Button) findViewById(R.id.task3);
 
         star1 = (ImageView) findViewById(R.id.imageView2);
         star2 = (ImageView) findViewById(R.id.imageView3);
@@ -96,9 +91,8 @@ public class Level2 extends AppCompatActivity implements View.OnClickListener {
         treasure.setOnClickListener(this);
 
 
-
         if (isCompleted1 && isCompleted2 && isCompleted3) {
-            MainActivity.isLevel2=true;
+            MainActivity.isLevel2 = true;
         }
 
 
@@ -141,13 +135,17 @@ public class Level2 extends AppCompatActivity implements View.OnClickListener {
         if (v.getId() == R.id.task1) {
             click.start();
             task1.startAnimation(myAnim);
-            myAnim.setAnimationListener(new Animation.AnimationListener(){
-                public void onAnimationStart(Animation a){}
-                public void onAnimationRepeat(Animation a){}
-                public void onAnimationEnd(Animation a){
+            myAnim.setAnimationListener(new Animation.AnimationListener() {
+                public void onAnimationStart(Animation a) {
+                }
+
+                public void onAnimationRepeat(Animation a) {
+                }
+
+                public void onAnimationEnd(Animation a) {
 
                     Intent i = new Intent(Level2.this, gamedevelopers.funcandi.taskworkflow.Intro.ui.StoryActivity1.class);
-                    Log.e("mylog","in level1");
+                    Log.e("mylog", "in level1");
                     startActivity(i);
                 }
 
@@ -156,17 +154,21 @@ public class Level2 extends AppCompatActivity implements View.OnClickListener {
         } else if (v.getId() == R.id.task2) {
 
 
-            if(Level2.isCompleted1) {
+            if (Level2.isCompleted1) {
                 click.start();
                 task2.startAnimation(myAnim);
-                myAnim.setAnimationListener(new Animation.AnimationListener(){
-                    public void onAnimationStart(Animation a){}
-                    public void onAnimationRepeat(Animation a){}
-                    public void onAnimationEnd(Animation a){
+                myAnim.setAnimationListener(new Animation.AnimationListener() {
+                    public void onAnimationStart(Animation a) {
+                    }
+
+                    public void onAnimationRepeat(Animation a) {
+                    }
+
+                    public void onAnimationEnd(Animation a) {
 
                         Intent i = new Intent(Level2.this, Task2.class);
-                        Log.e("mylog","in level1");
-                       // startActivity(i);
+                        Log.e("mylog", "in level1");
+                        // startActivity(i);
                     }
 
                 });
@@ -174,33 +176,38 @@ public class Level2 extends AppCompatActivity implements View.OnClickListener {
         } else if (v.getId() == R.id.task3) {
 
 
-
-            if(Level2.isCompleted2) {
+            if (Level2.isCompleted2) {
                 click.start();
                 task3.startAnimation(myAnim);
 
-                myAnim.setAnimationListener(new Animation.AnimationListener(){
-                    public void onAnimationStart(Animation a){}
-                    public void onAnimationRepeat(Animation a){}
-                    public void onAnimationEnd(Animation a){
+                myAnim.setAnimationListener(new Animation.AnimationListener() {
+                    public void onAnimationStart(Animation a) {
+                    }
+
+                    public void onAnimationRepeat(Animation a) {
+                    }
+
+                    public void onAnimationEnd(Animation a) {
 
                         Intent i = new Intent(Level2.this, QuizActivity2.class);
-                        Log.e("mylog","in level1");
+                        Log.e("mylog", "in level1");
                         startActivity(i);
                     }
 
                 });
             }
-        }
-
-        else if(v.getId()== R.id.button9) {
+        } else if (v.getId() == R.id.button9) {
 
             if (isCompleted1 && isCompleted2 && isCompleted3) {
                 treasure.startAnimation(myAnim);
-                myAnim.setAnimationListener(new Animation.AnimationListener(){
-                    public void onAnimationStart(Animation a){}
-                    public void onAnimationRepeat(Animation a){}
-                    public void onAnimationEnd(Animation a){
+                myAnim.setAnimationListener(new Animation.AnimationListener() {
+                    public void onAnimationStart(Animation a) {
+                    }
+
+                    public void onAnimationRepeat(Animation a) {
+                    }
+
+                    public void onAnimationEnd(Animation a) {
 
                         Intent i = new Intent(Level2.this, WheelActivity.class);
                         startActivity(i);
@@ -208,20 +215,22 @@ public class Level2 extends AppCompatActivity implements View.OnClickListener {
 
                 });
             }
-        }
-
-        else if(v.getId()==R.id.back){
+        } else if (v.getId() == R.id.back) {
 
             back.startAnimation(myAnim);
             click.start();
 
-            myAnim.setAnimationListener(new Animation.AnimationListener(){
-                public void onAnimationStart(Animation a){}
-                public void onAnimationRepeat(Animation a){}
-                public void onAnimationEnd(Animation a){
+            myAnim.setAnimationListener(new Animation.AnimationListener() {
+                public void onAnimationStart(Animation a) {
+                }
+
+                public void onAnimationRepeat(Animation a) {
+                }
+
+                public void onAnimationEnd(Animation a) {
 
                     Intent i = new Intent(Level2.this, MainActivity.class);
-                    Log.e("mylog","in level1");
+                    Log.e("mylog", "in level1");
                     startActivity(i);
                 }
 

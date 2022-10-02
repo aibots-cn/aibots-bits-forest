@@ -27,7 +27,8 @@
         <activity android:name=".level3.Task3" />
         <activity android:name=".level4.Task1" />
         <activity android:name=".level4.Task2" />
-        <activity android:name=".level4.Task3" />        <activity android:name=".level5.Task1" />
+        <activity android:name=".level4.Task3" />
+        <activity android:name=".level5.Task1" />
         <activity android:name=".level5.Task2" />
         <activity android:name=".level5.Task3" />
         <activity android:name=".WheelActivity" />
@@ -39,11 +40,11 @@
         <activity android:name=".Intro.ui.MainActivity" />
         <activity android:name=".Intro.ui.QuizActivity1" />
         <activity android:name=".game1.MainActivity" />
-        <activity android:name=".game1.Game"/>
-        <activity android:name=".Intro.ui.QuizActivity2"/>
-        <activity android:name=".Intro.ui.QuizActivity3"/>
-        <activity android:name=".Intro.ui.QuizActivity4"/>
-        <activity android:name=".Intro.ui.QuizActivity5"/>
+        <activity android:name=".game1.Game" />
+        <activity android:name=".Intro.ui.QuizActivity2" />
+        <activity android:name=".Intro.ui.QuizActivity3" />
+        <activity android:name=".Intro.ui.QuizActivity4" />
+        <activity android:name=".Intro.ui.QuizActivity5" />
         <activity android:name=".Intro.ui.StoryActivity1" />
         <activity android:name=".Intro.ui.StoryActivity2" />
         <activity android:name=".Intro.ui.StoryActivity3" />
@@ -55,8 +56,8 @@
         <activity android:name=".Intro.PlayAgainActivity4" />
 
 
-
-        <activity android:name=".LauncherActivity"
+        <activity
+            android:name=".LauncherActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

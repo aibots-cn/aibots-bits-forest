@@ -12,8 +12,8 @@ public class Shoot {
 
     private static final int BMP_ROWS = 2;
     private static final int BMP_COLUMNS = 3;
-    private int x=0;
-    private int y=0;
+    private int x = 0;
+    private int y = 0;
     private int xSpeed;
     private GameView gameView;
     private Bitmap bmp;
@@ -34,11 +34,11 @@ public class Shoot {
         //this.height = bmp.getHeight() / BMP_ROWS;
 
         level = l;
-        this.width=bmp.getWidth();
-        this.height=bmp.getHeight();
+        this.width = bmp.getWidth();
+        this.height = bmp.getHeight();
 
-        visible=true;
-        xSpeed = view.getWidth()/30;
+        visible = true;
+        xSpeed = view.getWidth() / 30;
     }
 
     private void update() {
@@ -46,16 +46,14 @@ public class Shoot {
         if (level == 2) {
             x = x - xSpeed;
 
-            if (x<=-2*gameView.getWidth()) {
+            if (x <= -2 * gameView.getWidth()) {
                 visible = false;
             }
-        }
-
-        else {
+        } else {
 
             x = x + xSpeed;
 
-            if (x>2*gameView.getHeight()) {
+            if (x > 2 * gameView.getHeight()) {
                 visible = false;
             }
         }
@@ -66,8 +64,8 @@ public class Shoot {
         update();
 
 
-       canvas.drawBitmap(bmp, x, y, null);
-       detectCollision =  new Rect(x,y,x+width,y+height);
+        canvas.drawBitmap(bmp, x, y, null);
+        detectCollision = new Rect(x, y, x + width, y + height);
 
     }
 
@@ -75,7 +73,7 @@ public class Shoot {
         return detectCollision;
     }
 
-    public boolean isVisible(){
+    public boolean isVisible() {
         return visible;
     }
 

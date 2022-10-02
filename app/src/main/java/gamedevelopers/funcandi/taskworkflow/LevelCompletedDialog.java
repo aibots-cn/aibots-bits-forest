@@ -37,7 +37,7 @@ public class LevelCompletedDialog {
 
         LayoutInflater inflater = LayoutInflater.from(context);
 
-        View view  = inflater.inflate(R.layout.level_dialog, null);
+        View view = inflater.inflate(R.layout.level_dialog, null);
         view.setBackgroundColor(Color.TRANSPARENT);
 
         d.setCancelable(true);
@@ -50,7 +50,7 @@ public class LevelCompletedDialog {
         d.show();
 
 
-        next = (Button) d.findViewById(R.id.next) ;
+        next = (Button) d.findViewById(R.id.next);
 
         next.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,7 +63,7 @@ public class LevelCompletedDialog {
 
     private void CallActivity() {
         Intent i = new Intent(context, nextClass);
-        Log.e("mylog","in level1");
+        Log.e("mylog", "in level1");
         context.startActivity(i);
     }
 }

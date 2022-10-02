@@ -3,8 +3,8 @@ package gamedevelopers.funcandi.taskworkflow.level1;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.media.MediaPlayer;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
@@ -22,7 +22,7 @@ import gamedevelopers.funcandi.taskworkflow.Puzzles.Puzzle1;
 import gamedevelopers.funcandi.taskworkflow.R;
 
 public class Task2 extends AppCompatActivity implements View.OnClickListener {
-    TextView title,task;
+    TextView title, task;
 
     Typeface wooden;
 
@@ -36,7 +36,7 @@ public class Task2 extends AppCompatActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        overridePendingTransition( R.anim.slide_in, R.anim.slide_out );
+        overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
 
         //requestWindowFeature(Window.FEATURE_NO_TITLE);
         Log.e("mylog", "in Task1");
@@ -59,8 +59,8 @@ public class Task2 extends AppCompatActivity implements View.OnClickListener {
 
         title.setTypeface(wooden);
 
-        back=(Button) findViewById(R.id.back1);
-        complete=(Button) findViewById(R.id.show);
+        back = (Button) findViewById(R.id.back1);
+        complete = (Button) findViewById(R.id.show);
 
         back.setOnClickListener(this);
         complete.setOnClickListener(this);
@@ -80,6 +80,7 @@ public class Task2 extends AppCompatActivity implements View.OnClickListener {
         Log.e("mylog","in carterSS");
     }*/
     }
+
     public void onClick(View v) {
 
         if (v.getId() == R.id.show) {
@@ -87,13 +88,17 @@ public class Task2 extends AppCompatActivity implements View.OnClickListener {
 
             complete.startAnimation(myAnim);
 
-            myAnim.setAnimationListener(new Animation.AnimationListener(){
-                public void onAnimationStart(Animation a){}
-                public void onAnimationRepeat(Animation a){}
-                public void onAnimationEnd(Animation a){
+            myAnim.setAnimationListener(new Animation.AnimationListener() {
+                public void onAnimationStart(Animation a) {
+                }
+
+                public void onAnimationRepeat(Animation a) {
+                }
+
+                public void onAnimationEnd(Animation a) {
 
                     Intent i = new Intent(Task2.this, Puzzle1.class);
-                    Log.e("mylog","in level1");
+                    Log.e("mylog", "in level1");
                     startActivity(i);
                 }
 
@@ -104,13 +109,17 @@ public class Task2 extends AppCompatActivity implements View.OnClickListener {
 
             click.start();
             back.startAnimation(myAnim);
-            myAnim.setAnimationListener(new Animation.AnimationListener(){
-                public void onAnimationStart(Animation a){}
-                public void onAnimationRepeat(Animation a){}
-                public void onAnimationEnd(Animation a){
+            myAnim.setAnimationListener(new Animation.AnimationListener() {
+                public void onAnimationStart(Animation a) {
+                }
+
+                public void onAnimationRepeat(Animation a) {
+                }
+
+                public void onAnimationEnd(Animation a) {
 
                     Intent i = new Intent(Task2.this, Level1.class);
-                    Log.e("mylog","in level1");
+                    Log.e("mylog", "in level1");
                     startActivity(i);
                 }
 

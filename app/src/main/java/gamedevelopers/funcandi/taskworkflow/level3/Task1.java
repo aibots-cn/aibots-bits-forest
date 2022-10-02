@@ -3,8 +3,8 @@ package gamedevelopers.funcandi.taskworkflow.level3;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.media.MediaPlayer;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
@@ -22,7 +22,7 @@ import gamedevelopers.funcandi.taskworkflow.MyBounceInterpolator;
 import gamedevelopers.funcandi.taskworkflow.R;
 
 public class Task1 extends AppCompatActivity implements View.OnClickListener {
-    TextView title,task;
+    TextView title, task;
 
     Typeface wooden;
 
@@ -36,7 +36,7 @@ public class Task1 extends AppCompatActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        overridePendingTransition( R.anim.slide_in, R.anim.slide_out );
+        overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
 
         //requestWindowFeature(Window.FEATURE_NO_TITLE);
         Log.e("mylog", "in Task1");
@@ -59,8 +59,8 @@ public class Task1 extends AppCompatActivity implements View.OnClickListener {
         task = (TextView) findViewById(R.id.task);
         task.setText(MainActivity.tasks1.get(0));
 
-        back=(Button) findViewById(R.id.back1);
-        complete=(Button) findViewById(R.id.com);
+        back = (Button) findViewById(R.id.back1);
+        complete = (Button) findViewById(R.id.com);
 
         back.setOnClickListener(this);
         complete.setOnClickListener(this);
@@ -71,7 +71,7 @@ public class Task1 extends AppCompatActivity implements View.OnClickListener {
         // Use bounce interpolator with amplitude 0.2 and frequency 20
         MyBounceInterpolator interpolator = new MyBounceInterpolator(0.2, 20);
         myAnim.setInterpolator(interpolator);
-myAnim.setDuration(1000);
+        myAnim.setDuration(1000);
 
     /*   // Carter = Typeface.createFromAsset(getAssets(), "CarterOne.ttf");
         Log.e("mylog","in carter");
@@ -79,18 +79,23 @@ myAnim.setDuration(1000);
         Log.e("mylog","in carterSS");
     }*/
     }
+
     public void onClick(View v) {
 
         if (v.getId() == R.id.com) {
             click.start();
 //            Toast.makeText(this, "C1", Toast.LENGTH_SHORT).show();
             complete.startAnimation(myAnim);
-            Level3.isCompleted1=true;
+            Level3.isCompleted1 = true;
 
-            myAnim.setAnimationListener(new Animation.AnimationListener(){
-                public void onAnimationStart(Animation a){}
-                public void onAnimationRepeat(Animation a){}
-                public void onAnimationEnd(Animation a){
+            myAnim.setAnimationListener(new Animation.AnimationListener() {
+                public void onAnimationStart(Animation a) {
+                }
+
+                public void onAnimationRepeat(Animation a) {
+                }
+
+                public void onAnimationEnd(Animation a) {
 
                     LevelCompletedDialog dialog = new LevelCompletedDialog(Task1.this, Level3.class);
 
@@ -100,23 +105,27 @@ myAnim.setDuration(1000);
 
         }
 
-      if (v.getId() == R.id.back1) {
+        if (v.getId() == R.id.back1) {
 //          Toast.makeText(this, "C2", Toast.LENGTH_SHORT).show();
-click.start();
-          back.startAnimation(myAnim);
-          myAnim.setAnimationListener(new Animation.AnimationListener(){
-              public void onAnimationStart(Animation a){}
-              public void onAnimationRepeat(Animation a){}
-              public void onAnimationEnd(Animation a){
+            click.start();
+            back.startAnimation(myAnim);
+            myAnim.setAnimationListener(new Animation.AnimationListener() {
+                public void onAnimationStart(Animation a) {
+                }
 
-                  Intent i = new Intent(Task1.this, Level3.class);
-                  Log.e("mylog","in level1");
-                  startActivity(i);
-              }
+                public void onAnimationRepeat(Animation a) {
+                }
 
-          });
+                public void onAnimationEnd(Animation a) {
 
-      }
+                    Intent i = new Intent(Task1.this, Level3.class);
+                    Log.e("mylog", "in level1");
+                    startActivity(i);
+                }
+
+            });
+
+        }
     }
 
 }

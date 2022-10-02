@@ -3,16 +3,14 @@ package gamedevelopers.funcandi.taskworkflow.game1;
 /**
  * Created by hp on 13-06-2017.
  */
+
 import android.graphics.Canvas;
 
 public class GameLoopThread extends Thread {
     static final long FPS = 10;
-
-    private GameView view;
     private final Object pauseLock = new Object();
-
-    private boolean running = false,paused=false;
-
+    private GameView view;
+    private boolean running = false, paused = false;
 
 
     public GameLoopThread(GameView view) {
@@ -22,13 +20,11 @@ public class GameLoopThread extends Thread {
     }
 
 
-
     public void setRunning(boolean run) {
 
         running = run;
 
     }
-
 
 
     public void run() {
@@ -44,7 +40,8 @@ public class GameLoopThread extends Thread {
                 if (!running) { // may have changed while waiting to
                     // synchronize on pauseLock
                     break;
-                } if (paused) {
+                }
+                if (paused) {
                     try {
                         pauseLock.wait(); // will cause this Thread to block until
                         // another thread calls pauseLock.notifyAll()
@@ -86,7 +83,7 @@ public class GameLoopThread extends Thread {
 
             }
 
-            sleepTime = ticksPS-(System.currentTimeMillis() - startTime);
+            sleepTime = ticksPS - (System.currentTimeMillis() - startTime);
 
             try {
 
@@ -98,7 +95,8 @@ public class GameLoopThread extends Thread {
 
                     sleep(10);
 
-            } catch (Exception e) {}
+            } catch (Exception e) {
+            }
 
         }
 

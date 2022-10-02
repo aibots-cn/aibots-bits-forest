@@ -3,8 +3,8 @@ package gamedevelopers.funcandi.taskworkflow.level2;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.media.MediaPlayer;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
@@ -36,7 +36,7 @@ public class Task3 extends AppCompatActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        overridePendingTransition( R.anim.slide_in, R.anim.slide_out );
+        overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
 
         //requestWindowFeature(Window.FEATURE_NO_TITLE);
         Log.e("mylog", "in Task1");
@@ -59,8 +59,8 @@ public class Task3 extends AppCompatActivity implements View.OnClickListener {
 
         title.setTypeface(wooden);
 
-        back=(Button) findViewById(R.id.back1);
-        complete=(Button) findViewById(R.id.com);
+        back = (Button) findViewById(R.id.back1);
+        complete = (Button) findViewById(R.id.com);
 
         back.setOnClickListener(this);
         complete.setOnClickListener(this);
@@ -80,16 +80,21 @@ public class Task3 extends AppCompatActivity implements View.OnClickListener {
         Log.e("mylog","in carterSS");
     }*/
     }
+
     public void onClick(View v) {
 
         if (v.getId() == R.id.com) {
             click.start();
             complete.startAnimation(myAnim);
-            Level2.isCompleted3=true;
-            myAnim.setAnimationListener(new Animation.AnimationListener(){
-                public void onAnimationStart(Animation a){}
-                public void onAnimationRepeat(Animation a){}
-                public void onAnimationEnd(Animation a){
+            Level2.isCompleted3 = true;
+            myAnim.setAnimationListener(new Animation.AnimationListener() {
+                public void onAnimationStart(Animation a) {
+                }
+
+                public void onAnimationRepeat(Animation a) {
+                }
+
+                public void onAnimationEnd(Animation a) {
 
                     LevelCompletedDialog dialog = new LevelCompletedDialog(Task3.this, Level2.class);
 
@@ -101,13 +106,17 @@ public class Task3 extends AppCompatActivity implements View.OnClickListener {
         if (v.getId() == R.id.back1) {
             click.start();
             back.startAnimation(myAnim);
-            myAnim.setAnimationListener(new Animation.AnimationListener(){
-                public void onAnimationStart(Animation a){}
-                public void onAnimationRepeat(Animation a){}
-                public void onAnimationEnd(Animation a){
+            myAnim.setAnimationListener(new Animation.AnimationListener() {
+                public void onAnimationStart(Animation a) {
+                }
+
+                public void onAnimationRepeat(Animation a) {
+                }
+
+                public void onAnimationEnd(Animation a) {
 
                     Intent i = new Intent(Task3.this, Level2.class);
-                    Log.e("mylog","in level1");
+                    Log.e("mylog", "in level1");
                     startActivity(i);
                 }
 

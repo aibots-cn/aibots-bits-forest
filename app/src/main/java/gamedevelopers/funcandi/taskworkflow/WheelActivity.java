@@ -33,27 +33,20 @@ import java.util.Random;
 
 public class WheelActivity extends AppCompatActivity {
 
+    private static final float FACTOR = 15f;
+    public static String value = "";
     TextView text;
     Button btn;
     ImageView wheel;
-
     Random r;
-
     Typeface t;
-
-    int degrees=0, old_degrees=0;
-
-    private static final float FACTOR = 15f;
-
-    public static String value="";
-
-
+    int degrees = 0, old_degrees = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        overridePendingTransition( R.anim.slide_in, R.anim.slide_out );
+        overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
 
         //  requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
@@ -148,7 +141,7 @@ public class WheelActivity extends AppCompatActivity {
 
 
         // First section
-        if ((degrees >= (FACTOR * 23) && degrees < 360) || (degrees >= 0 && degrees < (FACTOR *1))) {
+        if ((degrees >= (FACTOR * 23) && degrees < 360) || (degrees >= 0 && degrees < (FACTOR * 1))) {
             value = "1000";
         }
 
@@ -199,11 +192,10 @@ public class WheelActivity extends AppCompatActivity {
             value = "7";
         }*/
 
-        LauncherActivity.REWARD+= Integer.parseInt(value);
+        LauncherActivity.REWARD += Integer.parseInt(value);
 
 
-
-        return "You Got\n" +" \u20BF "+ value ;
+        return "You Got\n" + " \u20BF " + value;
     }
 
 

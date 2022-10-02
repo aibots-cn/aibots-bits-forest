@@ -2,13 +2,12 @@ package gamedevelopers.funcandi.taskworkflow.Intro;
 
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import gamedevelopers.funcandi.taskworkflow.Intro.ui.MainActivity;
 import gamedevelopers.funcandi.taskworkflow.LauncherActivity;
 import gamedevelopers.funcandi.taskworkflow.Level1;
 import gamedevelopers.funcandi.taskworkflow.R;
@@ -21,6 +20,7 @@ public class PlayAgainActivity extends AppCompatActivity {
 
     Typeface t;
     TextView text;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +43,7 @@ public class PlayAgainActivity extends AppCompatActivity {
                 i1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
                 startActivity(i1);
-                LauncherActivity.REWARD+=10;
+                LauncherActivity.REWARD += 10;
 
                /* i1 = new Intent(getApplicationContext(), EndActivity.class);
                 startActivity(i1);*/

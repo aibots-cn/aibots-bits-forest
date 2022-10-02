@@ -6,15 +6,15 @@ package gamedevelopers.funcandi.taskworkflow.Intro.model;
 
 public class Page {
 
+    int mainChar;
+    boolean isThinking;
+    int isBuddy;
     private int imageId;
     private int charId;
     private String[] dialo;
     private Choice choice1;
     private Choice choice2;
     private boolean isFinalPage = false;
-    int mainChar;
-    boolean isThinking;
-    int isBuddy;
 
 
     public Page(boolean isThinking, int mainChar, int imageId, int charId, String[] dialo, Choice choice1, Choice choice2, boolean isFinalPage) {
@@ -23,8 +23,8 @@ public class Page {
         this.dialo = dialo;
         this.choice1 = choice1;
         this.choice2 = choice2;
-        this.isFinalPage=isFinalPage;
-        this.mainChar=mainChar;
+        this.isFinalPage = isFinalPage;
+        this.mainChar = mainChar;
         this.isThinking = isThinking;
     }
 
@@ -34,8 +34,8 @@ public class Page {
         this.dialo = dialo;
         this.choice1 = choice1;
         this.choice2 = choice2;
-        this.isFinalPage=isFinalPage;
-        this.mainChar=mainChar;
+        this.isFinalPage = isFinalPage;
+        this.mainChar = mainChar;
         this.isBuddy = isBuddy;
     }
 
@@ -45,15 +45,15 @@ public class Page {
         this.dialo = dialo;
         this.choice1 = choice1;
         this.choice2 = choice2;
-        this.isFinalPage=isFinalPage;
-        this.mainChar=mainChar;
+        this.isFinalPage = isFinalPage;
+        this.mainChar = mainChar;
     }
 
-    public boolean isThinking(){
+    public boolean isThinking() {
         return isThinking;
     }
 
-    public int getIsBuddy(){
+    public int getIsBuddy() {
         return isBuddy;
     }
 
@@ -73,17 +73,18 @@ public class Page {
         return imageId;
     }
 
-    public int getCharId() {
-        return charId;
-    }
-
     public void setImageId(int imageId) {
         this.imageId = imageId;
+    }
+
+    public int getCharId() {
+        return charId;
     }
 
     public String[] getDialo() {
         return dialo;
     }
+
     public Choice getChoice1() {
         return choice1;
     }

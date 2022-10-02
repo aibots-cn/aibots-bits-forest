@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp"
     android:background="@android:color/transparent"
-    >
+    android:padding="10dp">
 
 
     <ImageView
         android:id="@+id/title"
         android:layout_width="300dp"
         android:layout_height="80dp"
-        android:background="@drawable/reward"
-        android:layout_marginTop="13dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="13dp"
+        android:background="@drawable/reward" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -25,77 +23,81 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="81dp"
         android:background="@drawable/plank" />
+
     <ImageView
         android:id="@+id/imageView1"
         android:layout_width="330dp"
         android:layout_height="80dp"
-        android:background="@drawable/plank"
         android:layout_alignTop="@+id/imageView"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="72dp" />
+        android:layout_marginTop="72dp"
+        android:background="@drawable/plank" />
+
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="310dp"
         android:layout_height="80dp"
-        android:background="@drawable/plank"
         android:layout_alignTop="@+id/imageView1"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="72dp" />
+        android:layout_marginTop="72dp"
+        android:background="@drawable/plank" />
+
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="330dp"
         android:layout_height="80dp"
-        android:background="@drawable/plank"
         android:layout_alignTop="@+id/imageView2"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="72dp" />
+        android:layout_marginTop="72dp"
+        android:background="@drawable/plank" />
+
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="340dp"
         android:layout_height="90dp"
-        android:background="@drawable/plank"
+        android:layout_alignStart="@+id/imageView3"
         android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/imageView3" />
+        android:background="@drawable/plank" />
 
     <ImageView
-        android:id="@+id/paper"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/paper"
-        android:layout_marginTop="8dp"
         android:layout_alignTop="@+id/imageView"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/paper" />
 
     <ImageView
         android:id="@+id/bitimage"
         android:layout_width="130dp"
         android:layout_height="130dp"
-        android:layout_centerHorizontal="true"
         android:layout_below="@+id/title"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
-        android:src="@drawable/bitcoin"/>
+        android:src="@drawable/bitcoin" />
+
     <TextView
         android:id="@+id/head"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Reward Cryptocoins"
-        android:layout_marginTop="30dp"
         android:layout_below="@+id/bitimage"
         android:layout_centerHorizontal="true"
-        android:textSize="30sp"
-        android:textColor="#d0664d"/>
+        android:layout_marginTop="30dp"
+        android:text="Reward Cryptocoins"
+        android:textColor="#d0664d"
+        android:textSize="30sp" />
 
     <TextView
         android:id="@+id/rewardcoin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/btc_fa"
-        android:layout_marginTop="10dp"
-        android:textStyle="bold"
         android:layout_below="@+id/head"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="@string/btc_fa"
+        android:textColor="#d0664d"
         android:textSize="50sp"
-        android:textColor="#d0664d"/>
+        android:textStyle="bold" />
 
     <!--<ImageView
         android:id="@+id/imageView8"
@@ -141,27 +143,27 @@
         android:id="@+id/close"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:background="@drawable/cross"
-        android:layout_alignParentEnd="true"
         android:layout_alignTop="@+id/title"
-        android:layout_marginTop="30dp"/>
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/cross" />
 
 
     <!--<ImageView-->
-        <!--android:id="@+id/imageView5"-->
-        <!--android:layout_width="330dp"-->
-        <!--android:layout_height="80dp"-->
-        <!--android:TWF_background="@drawable/TWF_plank"-->
-        <!--android:layout_alignTop="@+id/imageView2"-->
-        <!--android:layout_centerHorizontal="true"-->
-        <!--android:layout_marginTop="72dp" />-->
+    <!--android:id="@+id/imageView5"-->
+    <!--android:layout_width="330dp"-->
+    <!--android:layout_height="80dp"-->
+    <!--android:TWF_background="@drawable/TWF_plank"-->
+    <!--android:layout_alignTop="@+id/imageView2"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:layout_marginTop="72dp" />-->
 
     <!--<ImageView-->
-        <!--android:id="@+id/imageView6"-->
-        <!--android:layout_width="330dp"-->
-        <!--android:layout_height="80dp"-->
-        <!--android:TWF_background="@drawable/TWF_plank"-->
-        <!--android:layout_alignTop="@+id/imageView2"-->
-        <!--android:layout_centerHorizontal="true"-->
-        <!--android:layout_marginTop="72dp" />-->
+    <!--android:id="@+id/imageView6"-->
+    <!--android:layout_width="330dp"-->
+    <!--android:layout_height="80dp"-->
+    <!--android:TWF_background="@drawable/TWF_plank"-->
+    <!--android:layout_alignTop="@+id/imageView2"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:layout_marginTop="72dp" />-->
 </RelativeLayout>

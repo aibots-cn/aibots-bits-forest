@@ -7,8 +7,8 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
-import android.support.v7.app.ActionBar;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -24,24 +24,9 @@ import android.widget.Toast;
 
 import co.gofynd.gravityview.*;
 
-public class LauncherActivity extends Activity implements View.OnClickListener{
+public class LauncherActivity extends Activity implements View.OnClickListener {
 
-    ImageView bg;
-    GravityView gravityView;
-    Typeface wooden;
-
-    TextView gamename;
-
-    Button play, reward, shop, leader, close;
-
-    Dialog rew, shopD, leadersD;
-
-    RelativeLayout launcher;
-
-    public static int REWARD = 0;
-    TextView rewardcoin;
-
-    static final int[] catogaries = new int[] {
+    static final int[] catogaries = new int[]{
 
             R.drawable.teddy2,
             R.drawable.ps42,
@@ -51,6 +36,15 @@ public class LauncherActivity extends Activity implements View.OnClickListener{
             R.drawable.jet2,
 
     };
+    public static int REWARD = 0;
+    ImageView bg;
+    GravityView gravityView;
+    Typeface wooden;
+    TextView gamename;
+    Button play, reward, shop, leader, close;
+    Dialog rew, shopD, leadersD;
+    RelativeLayout launcher;
+    TextView rewardcoin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,18 +57,16 @@ public class LauncherActivity extends Activity implements View.OnClickListener{
         setContentView(R.layout.twf_activity_launcher);
 
 
-
-
         wooden = Typeface.createFromAsset(getAssets(), "wood.ttf");
 
-        gamename=(TextView) findViewById(R.id.gamename);
+        gamename = (TextView) findViewById(R.id.gamename);
 
         gamename.setTypeface(wooden);
 
-        play = (Button) findViewById(R.id.play) ;
-        reward = (Button) findViewById(R.id.reward) ;
-        leader = (Button) findViewById(R.id.leader) ;
-        shop = (Button) findViewById(R.id.shop) ;
+        play = (Button) findViewById(R.id.play);
+        reward = (Button) findViewById(R.id.reward);
+        leader = (Button) findViewById(R.id.leader);
+        shop = (Button) findViewById(R.id.shop);
 
         launcher = (RelativeLayout) findViewById(R.id.launcherbg);
 
@@ -84,69 +76,17 @@ public class LauncherActivity extends Activity implements View.OnClickListener{
         leader.setOnClickListener(this);
         shop.setOnClickListener(this);
 
-        bg  = (ImageView) findViewById(R.id.bg);
+        bg = (ImageView) findViewById(R.id.bg);
         launcher.setBackgroundResource(R.drawable.twf_background);
 
         gravityView = GravityView.getInstance(this);
 
-       if (gravityView.deviceSupported()) {
+        if (gravityView.deviceSupported()) {
             gravityView.setImage(bg, R.drawable.launcherbg).center();
-        }
-        else {
+        } else {
             launcher.setBackgroundResource(R.drawable.twf_background);
-       }
-    }
-
-
-    public class ImageAdapter extends BaseAdapter {
-        private Context context;
-
-        public ImageAdapter(Context c) {
-            context = c;
-        }
-
-        //---returns the number of images---
-        public int getCount() {
-            return catogaries.length;
-        }
-
-        //---returns the ID of an item---
-        public Object getItem(int position) {
-            return position;
-        }
-
-        public long getItemId(int position) {
-            return position;
-        }
-
-        //---returns an ImageView view---
-        public View getView(int position, View convertView, ViewGroup parent) {
-        ImageView imageView;
-            if (convertView == null) {
-                imageView = new ImageView(context);
-
-                imageView.setLayoutParams(new GridView.LayoutParams(600, 600));
-                imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-                imageView.setPaddingRelative(5, 50, 5, 100);
-
-
-
-            } else {
-                imageView = (ImageView) convertView;
-                imageView.setLayoutParams(new GridView.LayoutParams(600, 600));
-                imageView.setPadding(5, 50, 5, 100);
-
-
-
-            }
-            imageView.setImageResource(catogaries[position]);
-            return imageView;
-
-
         }
     }
-
-
 
     @Override
     protected void onResume() {
@@ -177,7 +117,7 @@ public class LauncherActivity extends Activity implements View.OnClickListener{
                 rew = new Dialog(LauncherActivity.this);
                 rew.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
-                View rewView  = getLayoutInflater().inflate(R.layout.reward_dialog, null);
+                View rewView = getLayoutInflater().inflate(R.layout.reward_dialog, null);
                 rewView.setBackgroundColor(Color.TRANSPARENT);
 
                 rew.setCancelable(true);
@@ -190,10 +130,10 @@ public class LauncherActivity extends Activity implements View.OnClickListener{
                 rew.show();
 
 
-                close = (Button) rew.findViewById(R.id.close) ;
+                close = (Button) rew.findViewById(R.id.close);
                 rewardcoin = (TextView) rew.findViewById(R.id.rewardcoin);
 
-                rewardcoin.setText("\u20BF"+REWARD);
+                rewardcoin.setText("\u20BF" + REWARD);
 
                 close.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -210,7 +150,7 @@ public class LauncherActivity extends Activity implements View.OnClickListener{
                 shopD = new Dialog(LauncherActivity.this);
                 shopD.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
-                View shopView  = getLayoutInflater().inflate(R.layout.shop_dialog, null);
+                View shopView = getLayoutInflater().inflate(R.layout.shop_dialog, null);
                 shopView.setBackgroundColor(Color.TRANSPARENT);
 
                 shopD.setCancelable(true);
@@ -221,7 +161,6 @@ public class LauncherActivity extends Activity implements View.OnClickListener{
                 window1.setLayout(ActionBar.LayoutParams.MATCH_PARENT, ActionBar.LayoutParams.MATCH_PARENT);
 
 
-
                 GridView gridView = (GridView) shopD.findViewById(R.id.grid_view);
 
                 gridView.setAdapter(new ImageAdapter(this));
@@ -230,7 +169,7 @@ public class LauncherActivity extends Activity implements View.OnClickListener{
                                             int position, long id) {
 
                         Toast.makeText(getApplicationContext(),
-                                " "+position, Toast.LENGTH_SHORT).show();
+                                " " + position, Toast.LENGTH_SHORT).show();
 
 
                     }
@@ -240,7 +179,7 @@ public class LauncherActivity extends Activity implements View.OnClickListener{
                 shopD.show();
 
 
-                close = (Button) shopD.findViewById(R.id.close) ;
+                close = (Button) shopD.findViewById(R.id.close);
 
                 close.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -258,7 +197,7 @@ public class LauncherActivity extends Activity implements View.OnClickListener{
                 leadersD.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
 
-                View leadersView  = getLayoutInflater().inflate(R.layout.leaders_dialog, null);
+                View leadersView = getLayoutInflater().inflate(R.layout.leaders_dialog, null);
                 leadersView.setBackgroundColor(Color.TRANSPARENT);
 
                 leadersD.setCancelable(true);
@@ -271,7 +210,7 @@ public class LauncherActivity extends Activity implements View.OnClickListener{
                 leadersD.show();
 
 
-                close = (Button) leadersD.findViewById(R.id.close) ;
+                close = (Button) leadersD.findViewById(R.id.close);
 
                 close.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -281,6 +220,52 @@ public class LauncherActivity extends Activity implements View.OnClickListener{
                 });
 
                 break;
+        }
+    }
+
+    public class ImageAdapter extends BaseAdapter {
+        private Context context;
+
+        public ImageAdapter(Context c) {
+            context = c;
+        }
+
+        //---returns the number of images---
+        public int getCount() {
+            return catogaries.length;
+        }
+
+        //---returns the ID of an item---
+        public Object getItem(int position) {
+            return position;
+        }
+
+        public long getItemId(int position) {
+            return position;
+        }
+
+        //---returns an ImageView view---
+        public View getView(int position, View convertView, ViewGroup parent) {
+            ImageView imageView;
+            if (convertView == null) {
+                imageView = new ImageView(context);
+
+                imageView.setLayoutParams(new GridView.LayoutParams(600, 600));
+                imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+                imageView.setPaddingRelative(5, 50, 5, 100);
+
+
+            } else {
+                imageView = (ImageView) convertView;
+                imageView.setLayoutParams(new GridView.LayoutParams(600, 600));
+                imageView.setPadding(5, 50, 5, 100);
+
+
+            }
+            imageView.setImageResource(catogaries[position]);
+            return imageView;
+
+
         }
     }
 }

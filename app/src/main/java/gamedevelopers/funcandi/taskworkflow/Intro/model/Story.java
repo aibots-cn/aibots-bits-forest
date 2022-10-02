@@ -11,18 +11,13 @@ import gamedevelopers.funcandi.taskworkflow.R;
 
 public class Story {
 
+    // set this to true for analysis part
+    public boolean analysis = false;
     String name;
+    Context context;
+    int happy, shocked, thinking, nervous;
     private Page[] pages;
     private String[] dialo;
-
-
-    // set this to true for analysis part
-    public boolean analysis=false;
-
-
-    Context context;
-
-    int happy, shocked, thinking, nervous;
 
     public Story(String name, Context context) {
 
@@ -32,15 +27,14 @@ public class Story {
             thinking = R.drawable.episode_thinkingboy;
             nervous = R.drawable.episode_nervousboy;
 
-        }
-        else  {
+        } else {
             happy = R.drawable.school_happygirl;
             shocked = R.drawable.school_shockedgirl;
             thinking = R.drawable.school_thinkinggirl;
             nervous = R.drawable.school_nervousgirl;
         }
 
-        this.context=context;
+        this.context = context;
 
 
         this.name = name;
@@ -48,57 +42,57 @@ public class Story {
 
         dialo = new String[1];
 
-        dialo[0]="  Hi Zayn ";
+        dialo[0] = "  Hi Zayn ";
         pages[0] = new Page(1, R.drawable.school_school, happy,
                 dialo, new Choice("NEXT", 1), new Choice("NEXT", 1), false);
 
         dialo = new String[2];
-        dialo[0]= "Hey "+name;
-        dialo[1]="How is your study going?";
+        dialo[0] = "Hey " + name;
+        dialo[1] = "How is your study going?";
         pages[1] = new Page(2, R.drawable.school_school, R.drawable.school_happyfriend,
                 dialo, new Choice("NEXT", 2), new Choice("NEXT", 2), false);
 
         dialo = new String[1];
-        dialo[0]="  They are going well";                           //r0h!n!cbs
+        dialo[0] = "  They are going well";                           //r0h!n!cbs
 
 
         pages[2] = new Page(1, R.drawable.school_school, happy,
                 dialo, new Choice("NEXT", 3), new Choice("NEXT", 3), false);
 
         dialo = new String[1];
-        dialo[0]="Oh! thats great! ";
+        dialo[0] = "Oh! thats great! ";
 
         pages[3] = new Page(2, R.drawable.school_school, R.drawable.school_happyfriend,
                 dialo, new Choice("NEXT", 4), new Choice("NEXT", 4), false);
 
 
         dialo = new String[4];
-        dialo[0]=" I heard about Blockchain and I  found it interesting.";
-        dialo[1]=" Do you know anything about Blockchain? ";
-        dialo[2]=" I want to learn it ";
-        dialo[3]=" Can you help me?";
+        dialo[0] = " I heard about Blockchain and I  found it interesting.";
+        dialo[1] = " Do you know anything about Blockchain? ";
+        dialo[2] = " I want to learn it ";
+        dialo[3] = " Can you help me?";
         pages[4] = new Page(1, R.drawable.school_school, thinking,
                 dialo, new Choice("NEXT", 5), new Choice("NEXT", 5), false);
 
 
         dialo = new String[1];
-        dialo[0]="Yeah sure";
+        dialo[0] = "Yeah sure";
 
         //Buddy Constructor called
         pages[5] = new Page(2, R.drawable.school_school, R.drawable.school_happyfriend,
                 dialo, new Choice("NEXT", 6), new Choice("NEXT", 6), false);
 
         dialo = new String[1];
-        dialo[0]="What is the whole blockchain thing?";
+        dialo[0] = "What is the whole blockchain thing?";
         pages[6] = new Page(1, R.drawable.school_school, thinking,
                 dialo, new Choice("NEXT", 7), new Choice("NEXT", 7), false);
 
 
         dialo = new String[3];
-        dialo[0]="Okay, A blockchain, is a growing list of records, called blocks.";
+        dialo[0] = "Okay, A blockchain, is a growing list of records, called blocks.";
 
-        dialo[1] ="And each block contains a unique hash of the previous block.\n";
-        dialo[2] ="By design, we can't alter the content of the block.";
+        dialo[1] = "And each block contains a unique hash of the previous block.\n";
+        dialo[2] = "By design, we can't alter the content of the block.";
         pages[7] = new Page(2, R.drawable.school_school, R.drawable.school_happyfriend,
                 dialo, new Choice("NEXT", 8), new Choice("NEXT", 8), false);
 
@@ -110,13 +104,11 @@ public class Story {
                 dialo, new Choice("NEXT", 9), new Choice("NEXT", 9), false);
 
 
-
-
         dialo = new String[1];
 
-        dialo[0]="Yeah it is";
+        dialo[0] = "Yeah it is";
 
-        pages[9] = new Page( 2, R.drawable.school_school,R.drawable.school_happyfriend,
+        pages[9] = new Page(2, R.drawable.school_school, R.drawable.school_happyfriend,
                 dialo, new Choice("NEXT", 10), new Choice("NEXT", 10), false);
 
         //_______________________END ___________________________
@@ -126,7 +118,7 @@ public class Story {
         pages[10] = new Page(1, R.drawable.school_school, happy,
                 dialo, new Choice("NEXT", 11), new Choice("NEXT", 11), false);
 
-         dialo = new String[3];
+        dialo = new String[3];
         dialo[0] = "So, a Blockchain is like a distributed database which means it is public";
         dialo[1] = "Many copies of the data are spread across all over the world ";
         dialo[2] = "These copies are called nodes";
@@ -170,7 +162,6 @@ public class Story {
 
 
     }
-
 
 
     public Page getPage(int pageNumber) {

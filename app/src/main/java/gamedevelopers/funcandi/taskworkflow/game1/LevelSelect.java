@@ -2,11 +2,9 @@ package gamedevelopers.funcandi.taskworkflow.game1;
 
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
@@ -25,14 +23,14 @@ public class LevelSelect extends AppCompatActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.u_activity_level_select);
 
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        t = Typeface.createFromAsset(this.getAssets(),"raleway.ttf");
+        t = Typeface.createFromAsset(this.getAssets(), "raleway.ttf");
 
         extras = new Bundle();
 
-        Intent i=getIntent();
-        String gend=i.getStringExtra("gender");
+        Intent i = getIntent();
+        String gend = i.getStringExtra("gender");
 
         extras.putString("gender", gend);
 
@@ -52,15 +50,13 @@ public class LevelSelect extends AppCompatActivity implements View.OnClickListen
 
     @Override
     public void onClick(View v) {
-        if (v.getId()==R.id.button){
-            Intent i=new Intent(LevelSelect.this,Game.class);
+        if (v.getId() == R.id.button) {
+            Intent i = new Intent(LevelSelect.this, Game.class);
             extras.putString("level", "1");
             i.putExtras(extras);
             startActivity(i);
-        }
-        else
-        {
-            Intent i=new Intent(LevelSelect.this,Game.class);
+        } else {
+            Intent i = new Intent(LevelSelect.this, Game.class);
             extras.putString("level", "2");
             i.putExtras(extras);
             startActivity(i);
